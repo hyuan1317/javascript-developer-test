@@ -1,7 +1,7 @@
 const { httpGet } = require("./mock-http-interface");
 
 const getArnieQuotes = async (urls) => {
-  const requests = urls.map((url) => httpGet(url));
+  const requests = urls.map(httpGet);
   const results = await Promise.all(requests);
   return results.map(formatHttpGetResult);
 };
